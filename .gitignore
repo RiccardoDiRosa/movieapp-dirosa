@@ -1,0 +1,10 @@
+config.local.js
+.env
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+node_modules/

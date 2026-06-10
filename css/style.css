@@ -1,0 +1,396 @@
+/* ============================================================
+   style.css — CineVault
+   Palette: quasi-nero profondo + azzurro acceso + grigio caldo
+   ============================================================ */
+
+/* ── Reset & Custom Properties ────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-deep:    #0d0d14;
+  --bg-card:    #16161f;
+  --bg-header:  #0d0d14ee;
+  --accent:     #4f8ef7;
+  --accent-dim: #2a4f9e;
+  --text-main:  #e8e8f0;
+  --text-muted: #8888aa;
+  --error:      #e05555;
+  --radius:     10px;
+  --gap:        1.25rem;
+  --font-display: 'Georgia', serif;
+  --font-body:    system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2rem;
+  background: var(--bg-header);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #ffffff0f;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--text-main);
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.hero {
+  padding: 4rem 2rem 2.5rem;
+  background: linear-gradient(180deg, #16203a 0%, var(--bg-deep) 100%);
+  border-bottom: 1px solid #ffffff08;
+}
+
+.hero__text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.hero__text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ── Main & Sections ───────────────────────────────────────── */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-main);
+  letter-spacing: 0.01em;
+}
+
+/* ── Cards Grid ────────────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--gap);
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #ffffff08;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 28px #00000060;
+  border-color: var(--accent-dim);
+}
+
+.card__poster-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #1a1a2e;
+}
+
+.card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+
+.card:hover .card__poster {
+  filter: brightness(0.8);
+}
+
+.card__rating {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  background: #000000aa;
+  color: #ffd700;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.card__info {
+  padding: 0.65rem 0.75rem;
+}
+
+.card__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+}
+
+.card__year {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ── Detail Page ───────────────────────────────────────────── */
+.detail {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.detail__poster-wrap {
+  flex-shrink: 0;
+  width: 260px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 40px #00000080;
+}
+
+.detail__poster {
+  width: 100%;
+  display: block;
+}
+
+.detail__info {
+  flex: 1;
+}
+
+.detail__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.detail__year,
+.detail__rating,
+.detail__genres {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  background: var(--bg-card);
+  border: 1px solid #ffffff12;
+  color: var(--text-muted);
+}
+
+.detail__rating {
+  color: #ffd700;
+}
+
+.detail__overview {
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 1.75rem;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  background: var(--accent-dim);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.btn-back:hover {
+  background: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Profile Page ──────────────────────────────────────────── */
+.profile {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile__avatar {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.profile__name {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+}
+
+.profile__desc {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.profile__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.profile__list strong {
+  color: var(--text-main);
+}
+
+/* ── Messaggi stato ────────────────────────────────────────── */
+.loading-msg,
+.error-msg {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.error-msg {
+  color: var(--error);
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.site-footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  border-top: 1px solid #ffffff08;
+  margin-top: auto;
+}
+
+.site-footer a {
+  color: var(--text-muted);
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .main-nav {
+    gap: 1.2rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+
+  .detail {
+    flex-direction: column;
+  }
+
+  .detail__poster-wrap {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+}
