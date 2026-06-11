@@ -1,7 +1,4 @@
-// ──────────────────────────────
 //  movies.js — Pagina /movies
-// ──────────────────────────────
-
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("movies-grid");
 

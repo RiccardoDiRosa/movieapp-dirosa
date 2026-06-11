@@ -1,7 +1,4 @@
-// ─────────────────────────────────
 //  utils.js — Helper DOM e formatting
-// ─────────────────────────────────
-
 /**
  * Crea e restituisce una card DOM per un film o una serie.
  * @param {Object} item       - oggetto TMDB (film o serie)

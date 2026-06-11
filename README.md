@@ -1,4 +1,4 @@
-# CineVault 🎬
+# CineDiro 🎬
 
 App web in stile Netflix che mostra film e serie TV usando l'API pubblica di TMDB (https://www.themoviedb.org).
 

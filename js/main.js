@@ -1,6 +1,4 @@
-// ──────────────────────────────────────────────────────
 //  main.js — Logica homepage (trending film + trending serie)
-// ──────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", async () => {
   const movieGrid  = document.getElementById("trending-movies-grid");

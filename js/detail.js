@@ -1,11 +1,7 @@
-// ────────────────────────────────────────────────────────
-//  detail.js — Pagina dettaglio film o serie (?id=X&type=Y)
-// ────────────────────────────────────────────────────────
-
 document.addEventListener("DOMContentLoaded", async () => {
   const params    = new URLSearchParams(window.location.search);
   const id        = params.get("id");
-  const mediaType = params.get("type"); // "movie" o "tv"
+  const mediaType = params.get("type"); 
 
   const container = document.getElementById("detail-container");
 

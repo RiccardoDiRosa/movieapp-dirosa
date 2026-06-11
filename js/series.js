@@ -1,7 +1,4 @@
-// ──────────────────────────────
 //  series.js — Pagina /series
-// ──────────────────────────────
-
 document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("series-grid");
 
